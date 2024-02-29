@@ -30,14 +30,14 @@ def contact():
 
     if request.method == 'POST':
         if form.validate_on_submit():
-            # name = form.username.data
+            name = form.username.data
             email = form.email.data
             subject = form.subject.data
             message = form.message.data
 
             msg = Message(
                 subject,
-                sender=email,
+                sender=(name, email),
                 recipients=["aaliyahreid12345@gmail.com"]
             )
             msg.body = message
